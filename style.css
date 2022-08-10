@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Mouse+Memoirs&family=Roboto&display=swap');
+
+:root {
+    font-size: 16px;
+    --text-primary: #b6b6b6;
+    --text-secondary: #ececec;
+    --bg-primary: #23232e;
+    --bg-secondary: #141418;
+}
+
+body {
+    color: black;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+/*styling scrollbar - limited usage*/
+/*obs: for desktop - supported only in Chrome browzer + some versions of Safari/Opera*/
+
+/*adjust the width*/
+body::-webkit-scrollbar {
+    width: 0.25rem;
+}
+
+/*change the background of the track*/
+body::-webkit-scrollbar-track {
+    background: #1e1e24;
+}
+
+/*change the color of the actual thumb that moves along that track*/
+body::-webkit-scrollbar-thumb {
+    background: #6649b8;
+}
+
+
+/*setting margin so the nav bar dont overlap the content on the page*/
+
+
+
+.navbar {
+    /*the width matches the margin-left that we asign to the main tag*/
+    /* width: 5rem; 
+    height: 100vh; */
+    font-family: 'Mouse Memoirs', sans-serif;
+    position: fixed;
+    background-color: var(--bg-primary);
+    transition: width 200ms ease; /*add navbar slide animation*/
+}
+
+/*add flex container*/
+.navbar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-item {
+    width: 100%;
+}
+
+/*target the last nav-item and push it down*/
+.nav-item:last-child {
+    margin-top: auto;
+}
+
+
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    height: 5rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    filter: grayscale(100%) opacity(0.7); /*add color animation for each icon on hover*/
+    transition: var(--transition-speed); /*add color animation for each icon on hover*/
+}
+
+/*add color animation for each icon on hover*/
+.nav-link:hover {
+    filter: grayscale(0%) opacity(1);
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+}
+
+
+/*we want to show the text only when the user hover*/
+.link-text {
+    display: none;
+    margin-left: 3rem;
+}
+
+.nav-link i {
+    min-width: 2rem;
+    margin: 0 1.5rem;
+    font-size: 1.5rem;
+}
+
+.nav-link span {
+    font-size: 1.25rem;
+}
+
+
+
+/*adding colors to the icons*/
+
+.fa-primary {
+    color: #ff7eee;
+}
+
+.fa-secondary {
+    color: #df49a6;
+}
+
+
+/*add navbar color animation*/
+.fa-primary,
+.fa-secondary {
+    transition: var(--transition-speed);
+}
+
+/*styling logo to look like a logo*/ 
+
+.logo {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: var(--text-secondary);
+    background: var(--bg-secondary);
+    letter-spacing: .75ch;
+    width: 100%;
+}
+
+/* setting default styling before set hover */
+.logo i {
+transform: rotate(0deg);
+transition: transform var(--transition-speed);
+}
+
+/*changing rotation on hover*/
+.navbar:hover .logo i {
+    transform: rotate(-180deg); /*rotate clock-wise*/
+    transition: 500ms ease;
+}
+
+/*small screens*/
+@media only screen and (max-width: 600px){
+    .navbar {
+        bottom: 0;
+        width: 100vw;
+        height: 5rem;
+    }
+    .logo {
+        display: none;
+    }
+    .navbar-nav{
+        flex-direction: row;
+    }
+    .nav-link{
+        justify-content: center;
+    }
+    .container {
+        width: 80%;
+        margin-bottom: 7rem;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+
+}
+
+/*Large screens*/
+@media only screen and (min-width: 600px){
+/*taken from original .navbar styling*/
+    .navbar{
+        top: 0;
+        width: 5rem;
+        height: 100vh;
+    }
+    
+/*adding navbar slide animation*/
+    .navbar:hover {
+        width: 16rem;
+    }
+
+    .navbar:hover .link-text {
+        display: inline;
+        transition: opacity var(--transition-speed);
+    }
+
+    main {
+        margin-left: 5rem;
+        padding: 1rem;
+        font-family: 'Roboto', sans-serif;
+    }
+    
+}
