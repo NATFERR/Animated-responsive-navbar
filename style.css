@@ -3,8 +3,9 @@
 :root {
     font-size: 16px;
     --text-primary: #b6b6b6;
-    --text-secondary: #ececec;
+    --text-secondary: #fff;
     --bg-primary: #23232e;
+    --bg-opacity: rgba(35,35,46,.98);
     --bg-secondary: #141418;
 }
 
@@ -44,7 +45,7 @@ body::-webkit-scrollbar-thumb {
     height: 100vh; */
     font-family: 'Mouse Memoirs', sans-serif;
     position: fixed;
-    background-color: var(--bg-primary);
+    background-color: var(--bg-opacity); 
     transition: width 200ms ease; /*add navbar slide animation*/
 }
 
@@ -187,6 +188,7 @@ transition: transform var(--transition-speed);
 /*adding navbar slide animation*/
     .navbar:hover {
         width: 16rem;
+        box-shadow: 0 0 1em #141418;
     }
 
     .navbar:hover .link-text {
